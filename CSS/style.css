@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    margin: 5px;
+}
+
+/* PRIMERA PARTE */
+.magia-activa {
+    background-color: pink;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 35px;
+    margin: 15px;
+}
+
+/* BOTON LISTA */
+.boton-activo {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: salmon;
+    border: 2px solid brown;
+    margin-top: 25px;
+}
+
+
+/* LISTAS */
+.a,
+.b,
+.c,
+.d,
+.e,
+.f,
+.g {
+    text-decoration: line-through;
+    list-style: none;
+}
+
+.boton-activo:hover {
+    background-color: rgb(255, 80, 60);
+}
+
+/* SEGUNDA PARTE */
+
+.input-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.inputNombreClase {
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid rgb(255, 132, 152);
+    background-color: pink;
+}
+
+.hidden {
+    display: none;
+}
+
+#btnSubmit, #mostrarChistes {
+    margin: 8px;
+    padding: 8px;
+    border: 2px solid rgb(255, 132, 152);
+    background-color: pink;
+}
+
+#mostrarChistes{
+    margin: 2rem;
+}
+
+/* TERCERA PARTE */
+
+.consoleCont {
+    margin: 8px;
+    padding: 8px;
+    border: solid rgb(255, 132, 152);
+    background-color: pink;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+}
+
+.chau {
+    padding: 2px;
+    background-color: salmon;
+}
+
+/* CUARTA PARTE */
+
+.alertCont {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(27, 27, 27);
+    border-radius: 15px;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    width: 500px;
+    height: 150px;
+    padding: 10px 15px;
+    margin: 5px auto;
+}
+
+.github {
+    margin: 5px;
+}
+
+.mensaje {
+    margin: 15px 5px;
+}
+
+.alertBtn {
+    border-radius: 20px;
+    padding: 8px 12px;
+    background-color: rgb(159, 198, 255);
+    width: fit-content;
+    align-self: flex-end;
+}
+
+/* QUINTA PARTE */
+
+.fondo {
+    background: linear-gradient(254deg, darkviolet, #d15bd9, #e46161);
+    background-size: 10000px;
+    animation: gradient-animation 12s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+.div-title {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    text-decoration: underline;
+    color: wheat;
+}
+
+.div-exp-cont {
+    display: flex;
+    justify-content: center;
+}
+
+.div-explicacion {
+    width: fit-content;
+    margin-top: 25px;
+    padding: 25px;
+    border: 2px solid white;
+    color: white;
+}
+
+.chiste-form {
+    display: flex;
+    align-items: center;
+    margin: 150px;
+}
+
+.chiste-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid rgb(143, 113, 113);
+    color: white;
+    padding: 30px;
+    margin: 25px;
+}
+
+.boton-chiste {
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.boton-chiste:hover {
+    transform: scale(1.1);
+}
+
+.div1{
+    max-width: 600px;
+}
+
+.apor-title{
+    color: white;
+    text-align: center;
+    margin: 2rem;
+}
