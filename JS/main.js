@@ -271,7 +271,7 @@ function verChistes() {
     }
 
     // traemos el array de chistes
-        fetch("../JSON/chistes.json")
+        fetch("../json/chistes.json")
             .then(response => response.json())
             .then(datos => {
                 chistesJson = datos
