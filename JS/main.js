@@ -118,8 +118,8 @@ class Chistes {
     }
 }
 
-// array de chistes
 let chistes = []
+let chistesJson = []
 
 // cargamos el array desde localStorage
 if (localStorage.getItem("chistes")) {
@@ -174,8 +174,8 @@ function proyectoCompleto() {
     let aporTitle = document.getElementById("chistitle")
     aporTitle.classList.add("hidden")
     const listaChistesBTN = document.getElementById("mostrarChistes")
-    listaChistesBTN.addEventListener("click", verChistes)
 
+    listaChistesBTN.addEventListener("click", verChistes)
 }
 
 // funcion para agregar el chiste
@@ -215,8 +215,28 @@ function agregarChiste() {
         // lo pusheamos al array
         const agregarChiste = new Chistes(nombreJugador, nuevoChiste, likes, id)
         chistes.push(agregarChiste)
-
-        // actualizamos el carrito con el nuevo chiste
+        Toastify({
+            text: "Chiste añadido",
+            duration: 3000,
+            close: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                color: "#000000",
+                background: "#ffc0cb",
+                borderRadius: "0.5rem",
+                textTransform: "uppercase",
+                fontWeight: 600,
+                fontSize: ".75rem"
+            },
+            offset: {
+                x: '1.5rem',
+                y: '1.5rem'
+            },
+            onClick: function () { } // Callback after click
+        }).showToast()
+        // actualizamos el array con el nuevo chiste
         localStorage.setItem("chistes", JSON.stringify(chistes))
         console.log(chistes)
 
@@ -232,8 +252,6 @@ function agregarChiste() {
                     <p>${nombreJugador}</p>
                 </div>
             </div> `
-
-        verChistes()
     })
 
 }
@@ -244,13 +262,56 @@ function verChistes() {
     const contChistes = document.getElementById("contChistes")
     // limpiamos el contenedor antes de pedir los chistes
     contChistes.innerHTML = ""
-    
+
     let aporTitle = document.getElementById("chistitle")
     aporTitle.classList.remove("hidden")
 
-    if(chistes.length < 1) {
+    if (chistes.length < 1) {
         contChistes.innerHTML = `<h4 class="apor-title">No hay chistes cargados<h4>`
     }
+
+    // traemos el array de chistes
+        fetch("../JSON/chistes.json")
+            .then(response => response.json())
+            .then(datos => {
+                chistesJson = datos
+                chistesJson.forEach(chiste => {
+                    let chistesListaJson = document.createElement("div")
+                    chistesListaJson.innerHTML = `
+                        <div class="chiste-cont">
+                            <div class="div1">
+                                <p>${chiste.chiste}</p>
+                            </div>
+                            <div>
+                                <p>${chiste.nombre}</p>
+                            </div>
+                            <div class="div-btn">
+                                <button id="contadorMG${chiste.id}" class="boton-chiste">
+                                    Me gusta
+                                </button>
+                                <p id="likes${chiste.id}">Likes: ${chiste.likes}</p>
+                            </div>
+                        </div> `
+            
+                    contChistes.append(chistesListaJson)
+            
+                    // AUMENTAR LIKES
+                    let contadorMG = document.getElementById(`contadorMG${chiste.id}`)
+                    contadorMG.addEventListener("click", () => {
+                        // generamos un like
+                        chiste.likes += 1
+            
+                        // actualizamos el localstorage
+                        localStorage.setItem("chistes", JSON.stringify(chistesJson))
+                        // mostramos los likes
+                        let mostrarLikes = document.getElementById(`likes${chiste.id}`)
+                        mostrarLikes.innerText = `Likes: ${chiste.likes}`
+                        // eliminamos el botón para evitar múltiples likes
+                        contadorMG.remove()
+                    })
+                })
+            })
+            .catch(error => console.log(error))
 
     chistes.forEach(chiste => {
         let chistesLista = document.createElement("div")
@@ -277,6 +338,7 @@ function verChistes() {
         contadorMG.addEventListener("click", () => {
             // generamos un like
             chiste.likes += 1
+
             // actualizamos el localstorage
             localStorage.setItem("chistes", JSON.stringify(chistes))
             // mostramos los likes
@@ -286,4 +348,6 @@ function verChistes() {
             contadorMG.remove()
         })
     })
+
+    
 }

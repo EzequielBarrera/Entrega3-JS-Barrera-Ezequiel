@@ -10,7 +10,7 @@ li {
 
 /* PRIMERA PARTE */
 .magia-activa {
-    background-color: pink;
+    background-color: #ffc0cb;
     border: 2px solid black;
     border-radius: 15px;
     padding: 35px;
@@ -185,6 +185,7 @@ h3 {
     color: white;
     padding: 30px;
     margin: 25px;
+    background-color: #d15bd9;
 }
 
 .boton-chiste {

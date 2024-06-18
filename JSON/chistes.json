@@ -1,0 +1,26 @@
+[
+    {
+        "nombre":"Marie Curie",
+        "chiste":"¿Cómo se despiden los químicos? Ácido un placer.",
+        "likes": 0,
+        "id": 1001
+    },
+    {
+        "nombre":"Sheldon Cooper",
+        "chiste":"Un neutrón entra en un bar y pregunta: '¿Cuánto por un trago?' El barman le dice: 'Para ti, sin cargo alguno'",
+        "likes": 2,
+        "id": 1002
+    },
+    {
+        "nombre":"El profe",
+        "chiste":"A ése calvo le dicen «Alfajor de Maizena»… se le ve el coco por encima!",
+        "likes": 1,
+        "id": 1003
+    },
+    {
+        "nombre":"Manolo",
+        "chiste":"¿Qué le dice un gusano a otro gusano? Voy a dar una vuelta a la manzana.",
+        "likes": 3,
+        "id": 1004
+    }
+]
